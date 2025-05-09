@@ -1,4 +1,5 @@
+
 [build]
-  command = "npm run build"
+  command = "npx nuxi build --preset netlify"
   publish = ".output/public"
-  functions = "netlify/functions"
+  functions = ".output/functions"

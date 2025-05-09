@@ -1,6 +1,11 @@
 import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
+  ssr: true,
+  nitro: {
+    preset: "netlify",
+  },
+
   compatibilityDate: "2024-11-01",
   devtools: { enabled: false },
   css: ["~/assets/css/tailwind.css"],
@@ -11,7 +16,6 @@ export default defineNuxtConfig({
     },
   },
 
-  ssr: true,
   plugins: [{ src: "~/plugins/primevue", mode: "client" }],
   app: {
     head: {
@@ -24,8 +28,5 @@ export default defineNuxtConfig({
       },
     },
     pageTransition: { name: "fade", mode: "out-in" },
-  },
-  nitro: {
-    preset: "netlify",
   },
 });
