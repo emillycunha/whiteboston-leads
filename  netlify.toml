@@ -1,17 +1,10 @@
 # netlify.toml
 [build]
-  command   = "npm run build && nuxt generate"
+  command   = "npm run build"
   publish   = ".output/public"
   functions = "netlify/functions"
 
-# Route our two functions:
 [[redirects]]
-  from = "/api/generate-link"
-  to   = "/.netlify/functions/generate-link"
+  from = "/*"
+  to = "/index.html"
   status = 200
-
-[[redirects]]
-  from = "/download/:token"
-  to   = "/.netlify/functions/download?token=:token"
-  status = 200
-  force  = true
