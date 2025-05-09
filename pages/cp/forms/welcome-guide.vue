@@ -4,6 +4,7 @@
 
     <form name="cp-welcome-guide" method="POST" data-netlify="true" action="/cp/forms/welcome-guide-download">
       <input type="hidden" name="form-name" value="cp-welcome-guide" />
+      <input type="hidden" name="form-handler" value="notify-discord" />
 
       <div class="mb-4">
         <label class="block mb-2 text-sm font-medium">Name</label>
