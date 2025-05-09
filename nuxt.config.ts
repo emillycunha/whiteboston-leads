@@ -10,7 +10,7 @@ export default defineNuxtConfig({
       "@tailwindcss/postcss": {},
     },
   },
-  ssr: false,
+  ssr: true,
   plugins: [{ src: "~/plugins/primevue", mode: "client" }],
   app: {
     head: {
