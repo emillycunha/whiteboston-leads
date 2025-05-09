@@ -1,9 +1,9 @@
 import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
-  ssr: true,
+  ssr: false,
   nitro: {
-    preset: "netlify",
+    preset: "static",
   },
 
   compatibilityDate: "2024-11-01",
@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     },
   },
 
-  plugins: [{ src: "~/plugins/primevue" }],
+  plugins: [{ src: "~/plugins/primevue", mode: "client" }],
   app: {
     head: {
       htmlAttrs: {

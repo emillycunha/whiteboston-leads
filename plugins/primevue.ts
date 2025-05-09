@@ -7,6 +7,8 @@ import Aura from "@primeuix/themes/aura";
 // ✅ PrimeVue Components
 import Button from "primevue/button";
 import InputText from "primevue/inputtext";
+import Dialog from "primevue/dialog";
+import Checkbox from "primevue/checkbox";
 
 const MyPreset = definePreset(Aura, {
   semantic: {
@@ -76,4 +78,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.vueApp.component("Button", Button);
   nuxtApp.vueApp.component("InputText", InputText);
+  nuxtApp.vueApp.component("Dialog", Dialog);
+  nuxtApp.vueApp.component("Checkbox", Checkbox);
 });
