@@ -3,13 +3,12 @@
     <div class="bg-white p-8 w-full max-w-md rounded-xl shadow-2xl border border-gray-200">
       <h1 class="text-2xl font-bold mb-6 text-center">Get Your Free Welcome Guide</h1>
 
-      <form name="cp-welcome-guide" method="post" data-netlify="true" action="/.netlify/functions/form-handler" data-netlify-honeypot="bot-field">
-        <!-- Netlify hidden inputs -->
-        <input type="hidden" name="form-name" value="contact" />
+      <form action="/.netlify/functions/form-handler" method="post" name="cp-welcome-guide">
+        <!-- Honeypot field (invisible to users) -->
         <p class="hidden">
           <label>
             Don’t fill this out if you're human:
-            <input name="bot-field" />
+            <input name="bot-field" type="text" />
           </label>
         </p>
 
