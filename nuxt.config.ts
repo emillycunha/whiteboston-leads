@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     },
   },
 
-  plugins: [{ src: "~/plugins/primevue", mode: "client" }],
+  plugins: [{ src: "~/plugins/primevue" }],
   app: {
     head: {
       htmlAttrs: {

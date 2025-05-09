@@ -1,25 +1,12 @@
 import { defineNuxtPlugin } from "#app";
 import PrimeVue from "primevue/config";
-import Ripple from "primevue/ripple";
 import "primeicons/primeicons.css";
 import { definePreset } from "@primeuix/themes";
 import Aura from "@primeuix/themes/aura";
 
 // ✅ PrimeVue Components
 import Button from "primevue/button";
-import Message from "primevue/message";
-import DataTable from "primevue/datatable";
-import Column from "primevue/column";
-import Select from "primevue/select";
 import InputText from "primevue/inputtext";
-import Dialog from "primevue/dialog";
-import Breadcrumb from "primevue/breadcrumb";
-import Card from "primevue/card";
-import Tag from "primevue/tag";
-import Badge from "primevue/badge";
-
-import ConfirmationService from "primevue/confirmationservice";
-import ToastService from "primevue/toastservice";
 
 const MyPreset = definePreset(Aura, {
   semantic: {
@@ -87,20 +74,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     },
   });
 
-  nuxtApp.vueApp.use(ToastService);
-  nuxtApp.vueApp.use(ConfirmationService);
-
   nuxtApp.vueApp.component("Button", Button);
-  nuxtApp.vueApp.component("DataTable", DataTable);
-  nuxtApp.vueApp.component("Column", Column);
-  nuxtApp.vueApp.component("Select", Select);
   nuxtApp.vueApp.component("InputText", InputText);
-  nuxtApp.vueApp.component("Message", Message);
-  nuxtApp.vueApp.component("Dialog", Dialog);
-  nuxtApp.vueApp.component("Breadcrumb", Breadcrumb);
-  nuxtApp.vueApp.component("Card", Card);
-  nuxtApp.vueApp.component("Tag", Tag);
-  nuxtApp.vueApp.component("Badge", Badge);
-
-  nuxtApp.vueApp.directive("ripple", Ripple);
 });
