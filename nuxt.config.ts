@@ -25,6 +25,6 @@ export default defineNuxtConfig({
     pageTransition: { name: "fade", mode: "out-in" },
   },
   nitro: {
-    preset: "static",
+    preset: "netlify",
   },
 });
