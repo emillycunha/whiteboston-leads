@@ -30,7 +30,7 @@
       <!-- Option 1: In-page second screen -->
       <div v-if="submitted" class="mt-6 text-center">
         <h2 class="text-xl font-bold mb-4">Here’s Your Guide</h2>
-        <a href="https://drive.google.com/file/d/12uXFLup8e7YwiCnpB0IvZtOY-bdDbKoU/view" target="_blank" class="inline-block px-4 py-2 bg-green-600 text-white rounded mr-2">Open Guide</a>
+        <a href="/guides/cody-posey-guide.pdf" target="_blank" class="inline-block px-4 py-2 bg-green-600 text-white rounded mr-2">Open Guide</a>
         <a href="https://drive.google.com/uc?export=download&id=12uXFLup8e7YwiCnpB0IvZtOY-bdDbKoU" target="_blank" class="inline-block px-4 py-2 bg-blue-600 text-white rounded">Download PDF</a>
       </div>
 

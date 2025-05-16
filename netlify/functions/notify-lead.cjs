@@ -13,7 +13,7 @@ exports.handler = async (event) => {
 
   const name = form.get("name") || "—";
   const email = form.get("email") || "—";
-  const subscribe = form.get("subscribe") === "yes" ? "✅ Subscribed to newsletter" : "🚫 No subscription";
+  const subscribe = form.get("subscribe") === "yes" ? "Subscribed to newsletter ✅" : "No subscription 🚫";
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return {
