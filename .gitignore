@@ -23,8 +23,5 @@ logs
 .env.*
 !.env.example
 
-# Local guides
-public/guides/
-
 # Local Netlify folder
 .netlify
