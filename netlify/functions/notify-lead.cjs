@@ -40,7 +40,7 @@ exports.handler = async (event) => {
   // Send email via Resend
   try {
     await resend.emails.send({
-      from: "Cody Posey <cp-guid@wleads.whiteboston.com>",
+      from: "Cody Posey <cp-guide@leads.whiteboston.com>",
       to: email,
       subject: "Your Buy, Sell & Relocation Guide Has Arrived",
       html: `
