@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100 p-6">
     <div class="bg-white p-8 w-full max-w-md rounded-xl shadow-2xl border border-gray-200">
-      <h1 class="text-2xl font-bold mb-6 text-center">Get Your Free Welcome Guide</h1>
+      <h1 class="text-2xl font-bold mb-6 text-center">Get Your Free Buy, Sell & Relocation Guide</h1>
 
       <form @submit.prevent="onSubmit" name="cp-welcome-guide">
         <!-- honeypot -->
@@ -11,62 +11,64 @@
             <input name="bot-field" type="text" />
           </label>
         </p>
-        <div class="mb-4">
-          <label class="block mb-2 text-sm font-medium">Name</label>
-          <InputText v-model="name" name="name" class="w-full" required />
+
+        <div class="mb-4 flex gap-4">
+          <div class="w-1/2">
+            <label class="block mb-2 text-sm font-medium">
+              First Name
+              <span class="text-red-500">*</span>
+            </label>
+            <InputText v-model="firstName" name="firstName" class="w-full" required />
+          </div>
+
+          <div class="w-1/2">
+            <label class="block mb-2 text-sm font-medium">Last Name</label>
+            <InputText v-model="lastName" name="lastName" class="w-full" />
+          </div>
         </div>
+
+        <div class="mb-4">
+          <label class="block mb-2 text-sm font-medium">Phone</label>
+          <InputText v-model="phone" name="phone" class="w-full" />
+        </div>
+
         <div class="mb-6">
-          <label class="block mb-2 text-sm font-medium">Email</label>
+          <label class="block mb-2 text-sm font-medium">
+            Email
+            <span class="text-red-500">*</span>
+          </label>
           <InputText v-model="email" name="email" type="email" class="w-full" required />
         </div>
+
         <div class="mb-6 flex items-center">
           <Checkbox v-model="subscribe" inputId="subscribe" name="subscribe" binary class="mr-4" />
-          <label for="subscribe" class="text-sm">I agree to receive the Cody Posey and Abrahams Real Estate TIES Team newsletter</label>
+          <label for="subscribe" class="text-sm">I agree to receive the Cody Posey and Abrahams Real Estate TIES Team newsletter.</label>
         </div>
 
-        <Button label="Get the Guide" type="submit"></Button>
+        <Button label="Get the Guide" type="submit" class="bg-green-800 border-none" />
       </form>
-
-      <!-- Option 1: In-page second screen -->
-      <div v-if="submitted" class="mt-6 text-center">
-        <h2 class="text-xl font-bold mb-4">Here’s Your Guide</h2>
-        <a href="/guides/cody-posey-guide.pdf" target="_blank" class="inline-block px-4 py-2 bg-green-600 text-white rounded mr-2">Open Guide</a>
-        <a href="https://drive.google.com/uc?export=download&id=12uXFLup8e7YwiCnpB0IvZtOY-bdDbKoU" target="_blank" class="inline-block px-4 py-2 bg-blue-600 text-white rounded">Download PDF</a>
-      </div>
-
-      <!-- Option 2: Modal popup -->
-      <Dialog header="" v-model:visible="showModal" modal @hide="resetForm">
-        <p class="mb-8 text-xl text-center">Click below to open or download your Welcome Guide:</p>
-        <div class="flex flex-col justify-center gap-6">
-          <Button label="Open Guide" icon="pi pi-folder-open" class="w-full" @click="openGuide" />
-          <Button label="Download PDF" icon="pi pi-download" class="w-full" @click="downloadGuide" />
-        </div>
-      </Dialog>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import Dialog from "primevue/dialog";
 import Button from "primevue/button";
 import InputText from "primevue/inputtext";
+import Checkbox from "primevue/checkbox";
 
-const name = ref("");
+const firstName = ref("");
+const lastName = ref("");
+const phone = ref("");
 const email = ref("");
 const bot = ref("");
-const subscribe = ref(true);
-const submitted = ref(false);
-const showModal = ref(false);
+const subscribe = ref(false); // start unchecked for compliance
 
-// these URLs can also come back from your function if you generate tokens
-const openUrl = "https://drive.google.com/file/d/12uXFLup8e7YwiCnpB0IvZtOY-bdDbKoU/view";
-const downloadUrl = "https://drive.google.com/uc?export=download&id=12uXFLup8e7YwiCnpB0IvZtOY-bdDbKoU";
-
-// your form POST→Netlify Function
 async function onSubmit() {
   const body = new URLSearchParams({
-    name: name.value,
+    firstName: firstName.value,
+    lastName: lastName.value,
+    phone: phone.value,
     email: email.value,
     "bot-field": bot.value,
     subscribe: subscribe.value ? "yes" : "no",
@@ -83,32 +85,6 @@ async function onSubmit() {
     return;
   }
 
-  // Option A: show inline
-  //submitted.value = true;
-
-  // Option B: show popup
-  showModal.value = true;
-}
-
-function openGuide() {
-  window.open(openUrl, "_blank");
-}
-
-function downloadGuide() {
-  window.open(downloadUrl, "_blank");
-}
-
-function resetForm() {
-  name.value = "";
-  email.value = "";
-  bot.value = "";
-  subscribe.value = true;
-  submitted.value = false;
+  window.location.href = "/cp/forms/cp-thank-you";
 }
 </script>
-
-<style>
-.p-dialog-mask {
-  background-color: rgba(0, 0, 0, 0.8) !important;
-}
-</style>
