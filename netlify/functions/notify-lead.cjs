@@ -17,6 +17,7 @@ exports.handler = async (event) => {
   const lastName = form.get("lastName") || "";
   const fullName = `${firstName} ${lastName}`.trim();
 
+  const phone = form.get("phone") || "—";
   const email = form.get("email") || "—";
   const subscribe = form.get("subscribe") === "yes" ? "Subscribed to newsletter ✅" : "No subscription 🚫";
 
@@ -32,14 +33,14 @@ exports.handler = async (event) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      content: `📩 New Lead\n\n• Name: ${fullName}\n• Email: ${email}\n• ${subscribe}`,
+      content: `📩 New Lead\n\n• Name: ${fullName}\n• Email: ${email}\n• Phone: ${phone}\n• ${subscribe}`,
     }),
   });
 
   // Send email via Resend
   try {
     await resend.emails.send({
-      from: "Cody Posey <cp-guid@whiteboston.com>",
+      from: "Cody Posey <cp-guid@wleads.whiteboston.com>",
       to: email,
       subject: "Your Buy, Sell & Relocation Guide Has Arrived",
       html: `
