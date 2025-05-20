@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1370461708946116628/htFHn3xP06zPiL6VSj-Nfws3AbNfSbUEmXyAhAvVbkzSLv-kEz1JUSo8ihp6MSdhKUCZ";
+const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK;
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -49,7 +49,7 @@ exports.handler = async (event) => {
     <p><strong>Your guide has arrived.</strong></p>
 
     <p style="margin: 20px 0;">
-      <a href="https://leads.whiteboston.com/guides/cody-posey-guide.pdf" target="_blank" style="display: inline-block; background: #065f46; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px;">Download the Guide</a>
+      <a href="https://leads.whiteboston.com/guides/cp/cody-posey-guide.pdf" target="_blank" style="display: inline-block; background: #065f46; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px;">Download the Guide</a>
     </p>
 
     <p>This guide covers key tips, timelines, and strategies for navigating the real estate market — whether you're buying, selling, or relocating.</p>
@@ -77,7 +77,7 @@ Hi ${firstName},
 Your guide has arrived.
 
 Download the Guide:
-https://leads.whiteboston.com/guides/cody-posey-guide.pdf
+https://leads.whiteboston.com/guides/cp/cody-posey-guide.pdf
 
 This guide covers key tips, timelines, and strategies for navigating the real estate market — whether you're buying, selling, or relocating.
 

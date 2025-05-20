@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1370461708946116628/htFHn3xP06zPiL6VSj-Nfws3AbNfSbUEmXyAhAvVbkzSLv-kEz1JUSo8ihp6MSdhKUCZ";
+const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK;
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
