@@ -12,4 +12,9 @@
   </div>
 </template>
 
-<script></script>
+<script>
+useHead({
+  title: "Thank You – Cody Posey",
+  meta: [{ name: "description", content: "We’ve emailed you the real estate guide from the Cody Posey. Check your inbox." }],
+});
+</script>

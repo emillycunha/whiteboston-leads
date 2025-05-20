@@ -1,9 +1,9 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100 p-6">
     <div class="bg-white p-8 w-full max-w-md rounded-xl shadow-2xl border border-gray-200">
-      <h1 class="text-2xl font-bold mb-6 text-center">Get Your Free Buy, Sell & Relocation Guide</h1>
+      <h1 class="text-2xl font-bold mb-6 text-center">Get Your Buyer's Guide</h1>
 
-      <form @submit.prevent="onSubmit" name="cp-welcome-guide">
+      <form @submit.prevent="onSubmit" name="da-buyers-guide">
         <!-- honeypot -->
         <p class="hidden">
           <label>
@@ -42,7 +42,7 @@
 
         <div class="mb-6 flex items-center">
           <Checkbox v-model="subscribe" inputId="subscribe" name="subscribe" binary class="mr-4" />
-          <label for="subscribe" class="text-sm">I agree to receive the Cody Posey and Abrahams Real Estate TIES Team newsletter.</label>
+          <label for="subscribe" class="text-sm">I agree to receive the Abrahams Real Estate TIES Team newsletter.</label>
         </div>
 
         <Button label="Get the Guide" type="submit" class="bg-green-800 border-none" />
@@ -62,7 +62,7 @@ const lastName = ref("");
 const phone = ref("");
 const email = ref("");
 const bot = ref("");
-const subscribe = ref(false); // start unchecked for compliance
+const subscribe = ref(false);
 
 async function onSubmit() {
   const body = new URLSearchParams({
@@ -74,7 +74,7 @@ async function onSubmit() {
     subscribe: subscribe.value ? "yes" : "no",
   }).toString();
 
-  const res = await fetch("/.netlify/functions/notify-lead", {
+  const res = await fetch("/.netlify/functions/da-notify-lead", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body,
@@ -85,6 +85,11 @@ async function onSubmit() {
     return;
   }
 
-  window.location.href = "/cp/forms/cp-thank-you";
+  window.location.href = "/realestate/da/thank-you";
 }
+
+useHead({
+  title: "Download TIES Team’s Buyer's Guide",
+  meta: [{ name: "description", content: "Get your free buyer's guide from the TIES Team." }],
+});
 </script>

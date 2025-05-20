@@ -33,14 +33,14 @@ exports.handler = async (event) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      content: `📩 New Lead\n\n• Name: ${fullName}\n• Email: ${email}\n• Phone: ${phone}\n• ${subscribe}`,
+      content: `📩 New Lead - Ties Team\n\n• Name: ${fullName}\n• Email: ${email}\n• Phone: ${phone}\n• ${subscribe}`,
     }),
   });
 
   // Send email via Resend
   try {
     await resend.emails.send({
-      from: "Cody Posey <cp-guide@leads.whiteboston.com>",
+      from: "TIES Team <guide@leads.whiteboston.com>",
       to: email,
       subject: "Your Buy, Sell & Relocation Guide Has Arrived",
       html: `
@@ -49,7 +49,7 @@ exports.handler = async (event) => {
     <p><strong>Your guide has arrived.</strong></p>
 
     <p style="margin: 20px 0;">
-      <a href="https://leads.whiteboston.com/guides/cp/cody-posey-guide.pdf" target="_blank" style="display: inline-block; background: #065f46; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px;">Download the Guide</a>
+      <a href="https://leads.whiteboston.com/guides/da/ties-team-buyers-guide.pdf" target="_blank" style="display: inline-block; background: #065f46; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px;">Download the Guide</a>
     </p>
 
     <p>This guide covers key tips, timelines, and strategies for navigating the real estate market — whether you're buying, selling, or relocating.</p>
@@ -57,11 +57,8 @@ exports.handler = async (event) => {
     <p>If you have any questions or want to talk through your options, feel free to reply directly to this email — I’m here to help.</p><br>
 
     <p>
-      Cody Posey, REALTOR®<br/>
       Abrahams Real Estate Ties Team<br/><br>
-      Phone: (830) 302-2199<br/>
-     
-      Instagram: <a href="https://instagram.com/nbhillcountryhomes">@nbhillcountryhomes</a>
+      Instagram: <a href="https://instagram.com/tiesteam">@tiesteam</a>
     </p>
     
 <hr style="margin: 24px 0; border: none; border-top: 1px solid #ddd;" />
@@ -77,17 +74,15 @@ Hi ${firstName},
 Your guide has arrived.
 
 Download the Guide:
-https://leads.whiteboston.com/guides/cp/cody-posey-guide.pdf
+https://leads.whiteboston.com/guides/da/ties-team-buyers-guide.pdf
 
 This guide covers key tips, timelines, and strategies for navigating the real estate market — whether you're buying, selling, or relocating.
 
 If you have any questions or want to talk through your options, feel free to reply directly to this email — I’m here to help.
 
-Cody Posey, REALTOR®
-Abrahams Real Estate Ties Team
 
-Phone: (830) 302-2199
-Instagram: @nbhillcountryhomes
+Abrahams Real Estate Ties Team
+Instagram: @tiesteam
 
 
 448 S Seguin Ave, New Braunfels, TX 78130
