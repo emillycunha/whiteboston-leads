@@ -4,6 +4,7 @@ const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK;
+const FUB_EMAIL = process.env.FUB_EMAIL;
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -94,6 +95,21 @@ Instagram: @nbhillcountryhomes
 
 This email was sent because you requested a guide via our website form. Your email may be stored securely for internal tracking purposes only and will not be shared or sold.
 `,
+    });
+    await resend.emails.send({
+      from: "Website Lead <lead@leads.whiteboston.com>",
+      to: FUB_EMAIL,
+      subject: "New Website Lead: Cody Posey",
+      text: `
+New lead activity notification
+
+First Name: ${firstName}
+Last Name: ${lastName}
+Email: ${email}
+Phone: ${phone}
+Source: Instagram Guide
+Tags: Guide Download${form.get("subscribe") === "yes" ? ", Newsletter Opt-In" : ""}
+  `,
     });
   } catch (err) {
     console.error("Resend error:", err);

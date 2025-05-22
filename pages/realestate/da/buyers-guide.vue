@@ -32,7 +32,7 @@
           <InputText v-model="phone" name="phone" class="w-full" />
         </div>
 
-        <div class="mb-6">
+        <div class="mb-2">
           <label class="block mb-2 text-sm font-medium">
             Email
             <span class="text-red-500">*</span>
@@ -40,6 +40,7 @@
           <InputText v-model="email" name="email" type="email" class="w-full" required />
         </div>
 
+        <p class="text-xs text-gray-400 mb-4">By submitting this form, you consent to receive communications regarding the requested guide.</p>
         <div class="mb-6 flex items-center">
           <Checkbox v-model="subscribe" inputId="subscribe" name="subscribe" binary class="mr-4" />
           <label for="subscribe" class="text-sm">I agree to receive the Abrahams Real Estate TIES Team newsletter.</label>

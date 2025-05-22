@@ -43,7 +43,7 @@
 
         <div class="mb-6 flex items-center">
           <Checkbox v-model="subscribe" inputId="subscribe" name="subscribe" binary class="mr-4" />
-          <label for="subscribe" class="text-sm">Sign me up for the monthly Cody Posey newsletter with market tips and updates.</label>
+          <label for="subscribe" class="text-sm">Sign me up for the TIES Team's newsletter with market tips and updates.</label>
         </div>
 
         <Button label="Get the Guide" type="submit" class="bg-green-800 border-none" />
